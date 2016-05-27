@@ -12,7 +12,7 @@ mongoose.connect('mongodb://localhost/learnNode' + port)
 app.set('views', './views/pages')
 app.set('view engine', 'jade')
 // parse application/x-www-form-urlencoded
-app.use(bodyParser.urlencoded({ extended: false }))
+app.use(bodyParser.urlencoded({ extended: true }))
 // parse application/json
 app.use(bodyParser.json())
 app.use(express.static(path.join(__dirname,'bower_components')))
@@ -77,6 +77,7 @@ app.get('/admin/update/:id', function (req, res) {
 
 // admin post movie
 app.post('/admin/movie/new', function (req, res) {
+	console.log(req.body);
 	var id = req.body.movie._id
 	var movieObj = req.body.movie
 	var _movie
