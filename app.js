@@ -15,7 +15,7 @@ app.set('view engine', 'jade')
 app.use(bodyParser.urlencoded({ extended: true }))
 // parse application/json
 app.use(bodyParser.json())
-app.use(express.static(path.join(__dirname,'bower_components')))
+app.use(express.static(path.join(__dirname,'public')))
 app.listen(port)
 
 console.log('iMovie started on port ' + port)
@@ -123,7 +123,7 @@ app.get('/admin/list', function (req, res)  {
 		if (err) {
 			console.log(err)
 		}
-		res.render('index',{
+		res.render('list',{
 			title: 'list 列表页',
 			movies: movies
 		})
